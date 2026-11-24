@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="Play Tic-Tac-Toe and Connect Four against an AI using Minimax and Alpha-Beta search.">
+  <title>Boardroom — Think. Play. Outsmart.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="wordmark" href="./index.html" aria-label="Boardroom home">
+        <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>boardroom<span class="wordmark-dot">.</span></span>
+      </a>
+      <div class="topbar-note"><span class="online-dot"></span> STRATEGY AI · READY TO PLAY</div>
+      <a class="report-link" href="#how-it-works">HOW IT WORKS <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-rule"></span> TWO CLASSICS. ONE CLEVER OPPONENT.</div>
+          <h1>Think<span>.</span><br>Play<span class="outline-word">. Outsmart.</span></h1>
+          <p>Two timeless games. One AI that plays to win.<br>Pick your board, make your move, see what happens.</p>
+        </div>
+        <div class="hero-side" aria-label="Project features">
+          <div class="side-label">BUILT WITH<br>ALGORITHMS, NOT LUCK</div>
+          <div class="algorithm-chip"><span>01</span> MINIMAX SEARCH</div>
+          <div class="algorithm-chip"><span>02</span> ALPHA–BETA PRUNING</div>
+          <div class="algorithm-chip"><span>03</span> JAVA · HTML · CSS</div>
+        </div>
+      </section>
+
+      <section class="game-layout" aria-label="Play games against the AI">
+        <aside class="game-picker">
+          <div class="section-caption">CHOOSE YOUR GAME <span>02</span></div>
+          <button class="game-option active" type="button" data-game="tictactoe" aria-pressed="true">
+            <span class="option-index">01</span>
+            <span class="option-icon icon-tic" aria-hidden="true"><i>×</i><i>○</i><i>×</i><i>○</i></span>
+            <span class="option-copy"><strong>Tic-Tac-Toe</strong><small>3 × 3 · THINK AHEAD</small></span>
+            <span class="option-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="game-option" type="button" data-game="connect4" aria-pressed="false">
+            <span class="option-index">02</span>
+            <span class="option-icon icon-four" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span class="option-copy"><strong>Connect Four</strong><small>6 × 7 · LINE IT UP</small></span>
+            <span class="option-arrow" aria-hidden="true">↗</span>
+          </button>
+          <div class="picker-foot">
+            <div class="turn-icon" aria-hidden="true">↳</div>
+            <div><strong>Your move first.</strong><p>Make a move and the AI<br>will find its response.</p></div>
+          </div>
+        </aside>
+
+        <section class="board-panel" aria-label="Game board">
+          <div class="board-topline">
+            <div class="board-title-wrap">
+              <span class="live-pill"><i></i> LIVE MATCH</span>
+              <h2 id="game-title">Tic-Tac-Toe</h2>
+            </div>
+            <button class="reset-button" id="reset-button" type="button"><span aria-hidden="true">↻</span> NEW GAME</button>
+          </div>
+          <div class="match-bar">
+            <div class="player-card is-turn" id="human-card">
+              <span class="player-token human-token" id="human-token">X</span>
+              <span><strong>YOU</strong><small id="human-role">GOES FIRST</small></span>
+            </div>
+            <span class="versus">VS</span>
+            <div class="player-card" id="ai-card">
+              <span class="player-token ai-token" id="ai-token">O</span>
+              <span><strong>AI OPPONENT</strong><small id="ai-role">MINIMAX</small></span>
+            </div>
+          </div>
+          <div class="status-line" id="game-status" aria-live="polite">
+            <span class="status-mark" aria-hidden="true">✳</span>
+            <span>Your turn. Pick a square to get started.</span>
+          </div>
+          <div class="board-area" id="board-area">
+            <div class="tic-board" id="tic-board" role="grid" aria-label="Tic-Tac-Toe board"></div>
+            <div class="connect-board-wrap" id="connect-board-wrap" hidden>
+              <div class="column-labels" id="column-labels" aria-label="Choose a column"></div>
+              <div class="connect-board" id="connect-board" role="grid" aria-label="Connect Four board"></div>
+            </div>
+          </div>
+          <div class="board-footer">
+            <span><i class="footer-dot"></i> <span id="move-count">0 MOVES</span></span>
+            <span>NO HINTS. NO LUCK. JUST LOGIC.</span>
+          </div>
+        </section>
+      </section>
+
+      <section class="bottom-strip" id="how-it-works">
+        <div class="bottom-heading"><span class="eyebrow-rule"></span><span>THE THINKING BEHIND THE PLAY</span></div>
+        <div class="feature-list">
+          <article class="feature-item"><span class="feature-index">01 / DECISION</span><h3>Minimax</h3><p>Looks ahead at possible plays and chooses the move with the best worst-case outcome.</p></article>
+          <article class="feature-item"><span class="feature-index">02 / EFFICIENCY</span><h3>Alpha–beta</h3><p>Skips Connect Four game paths that cannot improve the AI’s current best move.</p></article>
+          <article class="feature-item"><span class="feature-index">03 / JUDGEMENT</span><h3>Heuristics</h3><p>Scores open lines, center control and immediate threats when the search reaches its depth limit.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>BOARDROOM <span class="footer-separator">/</span> A JAVA DSA PROJECT</span>
+      <span>TIC-TAC-TOE &nbsp;·&nbsp; CONNECT FOUR &nbsp;·&nbsp; AI</span>
+    </footer>
+  </div>
+</body>
+</html>
